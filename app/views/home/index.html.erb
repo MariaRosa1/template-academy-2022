@@ -1,46 +1,29 @@
 <div class="card mb-3 col-12 dark-gray-6">
   <div class="row g-0 rounded dark-gray-6">
     <div class="col-md-6 mainCard">
-      <%= image_tag 'main-bg.png' %>
+      <%= image_tag Movie.select(:cover).last['cover'] %>
     </div>
     <div class="col-md-6">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <h5 class="card-title"><%= Movie.select(:title).last['title'] %></h5>
+        <p class="card-text"><small class="text-muted">Estreia: <%= Movie.select(:published_at).last['published_at']%></small></p>
+        <p class="card-text"><small class="text-muted"><%= Movie.select(:synopsis).last['synopsis']%></small></p>
       </div>
     </div>
   </div>
 </div>
+
 <div class="row">
-  <div class="col-sm-4">
-    <div class="card dark-gray-6">
-      <%= image_tag 'cover1.png', class: 'card-img-top' %>
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias porro amet consectetur reprehenderit possimus unde nemo quasi nisi, doloremque id nostrum enim atque, debitis quaerat itaque non quibusdam perferendis dolor.
-        </p>
-      </div>
+ <% Movie.select(:synopsis, :cover, :title, :published_at).last(4).reverse.drop(1).each do |data| %>
+    <div class="col-sm-4">
+        <div class="card dark-gray-6" style="height: 28rem;">
+            <%= image_tag data.cover, class: 'card-img-top'%>
+            <div class="card-body">
+            <h5 class="card-title"><%= data.title %></h5>
+            <p class="card-text"><small class="text-muted">Lançamento:  <%= format_year(data.published_at) %></small></p>
+            <p class="card-text"><small class="text-muted"><%= truncate(data.synopsis, :length => 200)%></small></p>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card dark-gray-6">
-      <%= image_tag 'cover2.png', class: 'card-img-top' %>
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias porro amet consectetur reprehenderit possimus unde nemo quasi nisi, doloremque id nostrum enim atque, debitis quaerat itaque non quibusdam perferendis dolor.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card dark-gray-6">
-      <%= image_tag 'cover3.png', class: 'card-img-top' %>
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias porro amet consectetur reprehenderit possimus unde nemo quasi nisi, doloremque id nostrum enim atque, debitis quaerat itaque non quibusdam perferendis dolor.
-        </p>
-      </div>
-    </div>
-  </div>
+  <% end %>
 </div>

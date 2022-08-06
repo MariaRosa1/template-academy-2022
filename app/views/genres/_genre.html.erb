@@ -1,0 +1,10 @@
+<div id="<%= dom_id genre %>">
+  <tr>
+    <td class="text-truncate"><%= genre.name %></td>
+    <td><%= format_date(genre.created_at) %></td>
+    <td class="flex">
+      <%= link_to "", edit_genre_path(genre), class: "btn pencil decoration" %>
+      <%= button_to "", genre, form: { data: { turbo_confirm: "Deseja realmente excluir este gênero?" } }, method: :delete, class: "btn trash decoration"%>
+    </td>
+  </tr>
+</div>

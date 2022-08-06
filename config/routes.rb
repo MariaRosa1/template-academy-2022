@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  resources :genres
   resources :movies
-  resources :movie_genres
   resources :directors
   resources :artists
   resource :home, only: :index

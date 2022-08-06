@@ -74,13 +74,31 @@ form .form-group>input,
 form .form-group>textarea,
 form .form-group>select,
 form .list-group-item {
-  color: #636366;
+  color: #E5E5EA;
   border: 1px solid #636366;
+  margin-bottom: 18px;
 }
 
 form .form-check-input:checked {
   border-color: #FF375F;
   background-color: #FF375F;
+}
+.flex{
+  display: flex;
+  justify-content: end;
+}
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.btn-form-right{
+  display: flex !important;
+  justify-content: end;
+  margin: 20px 0px;
+}
+.btn-form-margin{
+  margin-right: 10px;
 }
 
 .nav-pills .nav-item .nav-link.active,
@@ -88,12 +106,27 @@ form .form-check-input:checked {
   color: #F2F2F7 !important;
   background-color: #FF375F !important;
 }
-
+.decoration{
+  text-decoration: none;
+}
+.trash::before{
+  font-family:'Bootstrap-icons';
+  content: '\F78A';
+  color: #FF375F;
+  cursor: pointer;
+}
+.pencil:before{
+  font-family:'Bootstrap-icons';
+  content: '\F4C9';
+  color: white;
+}
 .cancel {
   color: #2C2C2E !important;
   background-color: #C7C7CC !important;
 }
-
+.align-text{
+  text-align: right;
+}
 tr {
   color: #C7C7CC !important;
   border-color: #1C1C1E !important;
@@ -142,4 +175,13 @@ td img {
 
 .light-gray-3 {
   background-color: #C7C7CC !important;
+}
+
+.field_with_errors .form-control{
+  border-color: #FF375F;;
+}
+
+.invalid-feedback {
+  display: block;
+  color: #FF375F;
 }

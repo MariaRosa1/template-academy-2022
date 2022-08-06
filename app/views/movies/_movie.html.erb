@@ -1,0 +1,13 @@
+<div id="<%= dom_id movie %>">
+  <tr>
+    <td class="text-truncate"><%= movie.title %></td>
+    <td><%= movie.director.name %></td>
+    <td><%= movie.genre.name %></td>
+    <td><%= format_day(movie.published_at) %></td>
+
+    <td class="flex">
+      <%= link_to "", edit_movie_path(movie), class: "btn pencil decoration" %>
+      <%= button_to "", movie, form: { data: { turbo_confirm: "Deseja realmente excluir este filme?" } }, method: :delete, class: "btn trash decoration"%>
+    </td>
+  </tr>
+</div>

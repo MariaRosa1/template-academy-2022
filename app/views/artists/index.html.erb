@@ -1,0 +1,21 @@
+<div id="artists" class="d-flex mb-5 justify-content-between" >
+  <h3> Artistas </h3>
+  <div>
+    <%= link_to "+ Novo artista", new_artist_path, class: 'btn primary decoration' %>
+  </div>
+
+</div>
+<table class="table">
+  <thead>
+      <tr>
+        <th class="col-md-3" scope="col">Nome </th>
+        <th class="col-md-3" scope="col">Criado em</th>
+        <th class="col-md-3 align-text" scope="col">Ações</th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @artists.each do |artist| %>
+      <%= render artist %>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,10 @@
+<div id="<%= dom_id director %>">
+  <tr>
+    <td class="text-truncate"><%= director.name %></td>
+    <td><%= format_date(director.created_at) %></td>
+    <td class="flex">
+      <%= link_to "", edit_director_path(director), class: "btn pencil decoration" %>
+      <%= button_to "", director, form: { data: { turbo_confirm: "Deseja realmente excluir este diretor?" } }, method: :delete, class: "btn trash decoration"%>
+    </td>
+  </tr>
+</div>

@@ -1,0 +1,15 @@
+<%= form_with(model: genre) do |form| %>
+
+<form>
+  <div class="form-group">
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name, class: "dark-gray-5 form-control" %>
+    <%= errors_for(form, :name) %>
+  </div>
+
+  <div class="btn-form-right">
+    <%= link_to "Cancelar", genres_path, class: ' btn cancel decoration btn-form-margin' %>
+    <%= form.submit "Salvar", class: 'btn primary' %>
+  </div>
+</form>
+<% end %>

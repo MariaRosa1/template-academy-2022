@@ -1,0 +1,35 @@
+<div id="<%= dom_id artist %>">
+  <tr>
+    <td class="text-truncate"><%= artist.name %></td>
+    <td><%= format_date(artist.created_at) %></td>
+    <td class="flex">
+      <%= link_to "", edit_artist_path(artist), class: "btn pencil decoration" %>
+      <%= button_to "", artist, form: { data: { turbo_confirm: "Deseja realmente excluir este artista?" } }, method: :delete, class: "btn trash decoration"%>
+      <%# <%= link_to 'delete', '#exampleModal', 'data-bs-toggle' => 'modal'%>
+    </td>
+  </tr>
+</div>
+
+
+<%# modal q tentei fazer mas ele nao deletava%>
+    <%# <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header dark-gray-4 ">
+          <h5 class="modal-title" id="exampleModalLabel">Atenção</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body dark-gray-6 ">
+          <h5>Deseja realmente excluir este item?</h5>
+          <p>Apos exclusão não será mais possivel recuperar os dados!</p>
+        </div>
+        <div class="modal-footer dark-gray-4 ">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <%= button_to "Destroy this artist", artist_path(artist.id), method: :delete, class: 'btn btn-danger' %>
+        <%# </div> %>
+      <%# </div> %>
+    <%# </div> %>
+  <%# </div> %>
+
+
+

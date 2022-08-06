@@ -1,0 +1,21 @@
+<div id="directors" class="d-flex mb-5 justify-content-between" >
+  <h3> Gêneros </h3>
+  <div>
+    <%= link_to "+ Novo gênero", new_genre_path, class: 'btn primary decoration' %>
+  </div>
+
+</div>
+<table class="table">
+  <thead>
+      <tr>
+        <th class="col-md-3" scope="col">Nome </th>
+        <th class="col-md-3" scope="col">Criado em</th>
+        <th class="col-md-3 align-text" scope="col">Ações</th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @genres.each do |genres| %>
+      <%= render genres %>
+    <% end %>
+  </tbody>
+</table>
